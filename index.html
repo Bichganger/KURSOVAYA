@@ -35,25 +35,31 @@
       <div class="navbar-collapse collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item mx-2">
-            <a class="nav-link bmw-nav-link" href="#">
+            <a class="nav-link bmw-nav-link" href="#gameArea">
               <span class="nav-text">Главная</span>
               <span class="nav-hover"></span>
             </a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link bmw-nav-link" href="#models">
-              <span class="nav-text">Модели</span>
+            <a class="nav-link bmw-nav-link" href="#cart">
+              <span class="nav-text">Модель</span>
               <span class="nav-hover"></span>
             </a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link bmw-nav-link" href="#tech">
+            <a class="nav-link bmw-nav-link" href="#Slayd">
               <span class="nav-text">Технологии</span>
               <span class="nav-hover"></span>
             </a>
           </li>
           <li class="nav-item mx-2">
-            <a class="nav-link bmw-nav-link" href="#testdrive">
+            <a class="nav-link bmw-nav-link" href="#gallery">
+              <span class="nav-text">Галерея</span>
+              <span class="nav-hover"></span>
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link bmw-nav-link" href="#video">
               <span class="nav-text">Тест-драйв</span>
               <span class="nav-hover"></span>
             </a>
@@ -86,7 +92,7 @@
           <!-- Заголовок игры -->
           <div class="row mb-5">
             <div class="col-12 text-center">
-              <h2 class="text-white mb-3">Собери свою BMW</h2>
+              <h2 class="text-white mb-3">Собери свою <span style="color: #0D6EFD;">BMW</span></h2>
               <p class="text-white">Перетащите все детали в зону сборки, чтобы увидеть результат</p>
               <div class="title-divider mx-auto"></div>
             </div>
@@ -151,15 +157,14 @@
   </main>
 
     <!-- карточки -->
-    <div class="container-fluid py-5 "
-      style="background: linear-gradient(to bottom, #111 0%, #1a1a1a 100%); margin-bottom: 150px;">
+    <div class="container-fluid py-5" style="background: linear-gradient(to bottom, #111 0%, #1a1a1a 100%); margin-bottom: 150px;" id="cart">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 text-center mb-5">
-            <h2 class="text-white mb-3">Преимущества BMW M5</h2>
+            <h2 class="text-white mb-3">Преимущества <span style="color: #0D6EFD;">BMW M5</span></h2>
             <p class="text-white">Исключительное качество и инновации</p>
           </div>
-
+    
           <div class="col-12">
             <div class="row justify-content-center g-4">
               <!-- Карточка 1 -->
@@ -174,9 +179,14 @@
                       материалам и передовым технологиям, созданным для получения исключительных впечатлений от
                       вождения.</p>
                   </div>
+                  <div class="card-footer bg-transparent border-0 pb-3">
+                    <button class="btn btn-outline-primary w-100 details-btn" data-bs-toggle="modal" data-bs-target="#contactModal" data-feature="Роскошный интерьер">
+                      Подробнее
+                    </button>
+                  </div>
                 </div>
               </div>
-
+    
               <!-- Карточка 2 -->
               <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-hover">
@@ -188,9 +198,14 @@
                     <p class="card-text text-white">Раскройте динамическую мощь BMW M5 F90 благодаря его
                       высокопроизводительному двигателю, обеспечивающему захватывающую скорость и точность.</p>
                   </div>
+                  <div class="card-footer bg-transparent border-0 pb-3">
+                    <button class="btn btn-outline-primary w-100 details-btn" data-bs-toggle="modal" data-bs-target="#contactModal" data-feature="Мощная производительность">
+                      Подробнее
+                    </button>
+                  </div>
                 </div>
               </div>
-
+    
               <!-- Карточка 3 -->
               <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-hover">
@@ -201,6 +216,11 @@
                     <h3 class="text-white">Элегантный дизайн</h3>
                     <p class="card-text text-white">Полюбуйтесь потрясающей эстетикой BMW M5 F90, сочетающего в себе
                       элегантность и спортивный стиль, что создает неповторимый образ на дороге.</p>
+                  </div>
+                  <div class="card-footer bg-transparent border-0 pb-3">
+                    <button class="btn btn-outline-primary w-100 details-btn" data-bs-toggle="modal" data-bs-target="#contactModal" data-feature="Элегантный дизайн">
+                      Подробнее
+                    </button>
                   </div>
                 </div>
               </div>
@@ -216,8 +236,7 @@
 
 
     <!-- слайдер -->
-    <div class="container-fluid m5-section py-5"
-      style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);">
+    <div class="container-fluid m5-section py-5"  style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);" id="Slayd">
       <div class="row g-0" style="min-height: 600px;"> <!-- Фиксированная минимальная высота -->
         <!-- Слайдер (левый блок) -->
         <div class="col-lg-6 slider-container p-4 h-100">
@@ -304,12 +323,11 @@
 
 
     <!-- галлерея -->
-    <div class="container-fluid gallery-section py-5"
-      style="background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);">
+    <div class="container-fluid gallery-section py-5" style="background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);" id="gallery">
       <div class="container">
         <div class="row mb-5">
           <div class="col-12 text-center">
-            <h2 class="text-white mb-3">Галерея BMW M5</h2>
+            <h2 class="text-white mb-3">Галерея <span style="color: #0D6EFD;">BMW M5</span></h2>
             <p class="text-white">Эксклюзивные ракурсы и детали</p>
           </div>
         </div>
@@ -334,7 +352,7 @@
 
     <!-- Видеообзор -->
     <div class="container-fluid video-section py-5 position-relative"
-      style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);">
+      style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);" id="video">
       <!-- Декоративные элементы -->
       <div class="bmw-badge">M5</div>
       <div class="power-lines"></div>
@@ -346,7 +364,7 @@
             <h2 class="section-title text-uppercase mb-3">
               <span class="text-primary">Легендарная</span> мощь
             </h2>
-            <p class="section-subtitle text-white">Полное погружение в мир BMW M Performance</p>
+            <p class="section-subtitle text-white">Полное погружение в мир <span style="color: #0D6EFD;">BMW M Performance</span></p>
             <div class="title-divider mx-auto"></div>
           </div>
         </div>
@@ -468,9 +486,6 @@
             <a href="#" class="social-icon ok">
               <img src="https://simpleicons.org/icons/odnoklassniki.svg" alt="Одноклассники" width="24">
             </a>
-            <a href="#" class="social-icon rutube">
-              <img src="https://simpleicons.org/icons/youtube.svg" alt="Rutube" width="24">
-            </a>
             <a href="#" class="social-icon telegram">
               <img src="https://simpleicons.org/icons/telegram.svg" alt="Telegram" width="24">
             </a>
@@ -488,6 +503,11 @@
         <!-- Копирайт -->
         <div class="footer-bottom">
           <p>© BMW M5 2025. Все права защищены</p>
+          <button class="back-to-top" aria-label="Наверх">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 15L12 8L19 15" stroke="#0066b1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </div>
     </footer>

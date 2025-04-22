@@ -92,6 +92,28 @@ function validateForm() {
   return true;
 }
 
+//Бургер меню
+document.addEventListener('DOMContentLoaded', function() {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  const navbarCollapse = document.querySelector('.navbar-collapse');
+  
+  // Обработчик клика по бургер-меню
+  navbarToggler.addEventListener('click', function() {
+    navbarCollapse.classList.toggle('show');
+    
+    // Анимация иконки бургера
+    this.classList.toggle('active');
+  });
+  
+  // Закрытие меню при клике на ссылку (для мобильных устройств)
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      navbarCollapse.classList.remove('show');
+      navbarToggler.classList.remove('active');
+    });
+  });
+});
 
 
 
@@ -180,6 +202,42 @@ document.querySelectorAll('.card').forEach(card => {
         card.style.setProperty('--rotate-y', '0deg');
     });
 });
+//ммодальное окно
+document.addEventListener('DOMContentLoaded', function() {
+  // Находим поле для комплектации в модальном окне
+  const packageSelect = document.getElementById('package');
+  
+  // Обрабатываем клик по кнопкам "Подробнее"
+  document.querySelectorAll('.details-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      // Получаем название характеристики из data-атрибута
+      const featureName = this.getAttribute('data-feature');
+      
+      // Создаем новую опцию для выбранной характеристики
+      const newOption = new Option(featureName, featureName);
+      
+      // Добавляем новую опцию в начало списка
+      packageSelect.insertBefore(newOption, packageSelect.options[1]);
+      
+      // Устанавливаем новую опцию как выбранную
+      packageSelect.value = featureName;
+    });
+  });
+  
+  // Очищаем добавленные опции при закрытии модального окна
+  document.getElementById('contactModal').addEventListener('hidden.bs.modal', function() {
+    // Удаляем все опции кроме стандартных
+    const options = packageSelect.options;
+    for (let i = options.length - 1; i >= 0; i--) {
+      if (options[i].value && !['Standard', 'Luxury', 'M Sport', 'Competition'].includes(options[i].value)) {
+        packageSelect.remove(i);
+      }
+    }
+    
+    // Сбрасываем значение на пустое
+    packageSelect.value = '';
+  });
+});
 
 //галерея
 document.addEventListener('DOMContentLoaded', function() {
@@ -207,6 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     duplicateElements();
 });
+
 
 
 /*слайдер*/
@@ -413,5 +472,27 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scrollPosition > footerPosition - 100) {
       footer.style.opacity = '1';
     }
+  });
+});
+//кнопка наверх
+document.addEventListener('DOMContentLoaded', function() {
+  const backToTopButton = document.querySelector('.back-to-top');
+  
+  // Показываем/скрываем кнопку при скролле
+  window.addEventListener('scroll', function() {
+    if (window.pageYOffset > 300) {
+      backToTopButton.classList.add('visible');
+    } else {
+      backToTopButton.classList.remove('visible');
+    }
+  });
+  
+  // Плавный скролл вверх при клике
+  backToTopButton.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   });
 });
