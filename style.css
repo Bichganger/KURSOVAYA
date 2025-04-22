@@ -1,0 +1,1021 @@
+body {
+  font-family: 'Arial', sans-serif;
+  font-family: "Bebas Neue", serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  color: #333;
+}
+.main{
+  margin-top: 50px;
+}
+
+/* Основные стили навигации */
+.navbar {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.navbar.scrolled {
+  background: rgba(0, 30, 60, 0.9) !important;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* Анимация логотипа BMW */
+.bmw-logo {
+  transition: all 0.5s ease;
+}
+
+.bmw-logo:hover {
+  transform: rotate(180deg);
+  filter: drop-shadow(0 0 8px rgba(0, 102, 177, 0.8));
+}
+
+/* Стили пунктов меню */
+.bmw-nav-link {
+  position: relative;
+  color: white !important;
+  font-weight: 500;
+  padding: 8px 0 !important;
+  margin: 0 12px;
+  overflow: hidden;
+}
+
+.nav-text {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.nav-hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #0066b1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.bmw-nav-link:hover .nav-text {
+  transform: translateY(-3px);
+}
+
+.bmw-nav-link:hover .nav-hover {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Стиль кнопки контактов */
+.bmw-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  padding: 8px 20px;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.bmw-contact-btn:hover {
+  background: rgba(0, 102, 177, 0.5);
+  border-color: #0066b1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 102, 177, 0.3);
+}
+
+.bmw-contact-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.bmw-contact-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* Кастомный бургер-меню */
+.bmw-toggler {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  border: none;
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.bmw-toggler span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.bmw-toggler span:nth-child(1) {
+  top: 0;
+}
+
+.bmw-toggler span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bmw-toggler span:nth-child(3) {
+  bottom: 0;
+}
+
+.bmw-toggler[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.bmw-toggler[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.bmw-toggler[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Стили для ошибок валидации */
+.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+/* Анимация для кнопки закрытия модального окна */
+.btn-close-white {
+  filter: invert(1);
+}
+
+/* Стили для полей формы */
+.form-control:focus, .form-select:focus {
+  border-color: #0066b1;
+  box-shadow: 0 0 0 0.25rem rgba(0, 102, 177, 0.25);
+  background-color: #222 !important;
+  color: white !important;
+}
+
+
+
+/* игра */
+
+
+/* Стили для игры */
+/* Общие стили для секции */
+.game-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.title-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #0066b1, #cc0000);
+  margin: 20px auto;
+}
+
+/* Карточки деталей и сборки */
+.parts-card, .assembly-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 102, 177, 0.3);
+  backdrop-filter: blur(5px);
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.parts-card:hover, .assembly-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Элементы деталей */
+.part-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 102, 177, 0.3);
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  cursor: grab;
+  transition: all 0.3s ease;
+  width: 140px;
+}
+
+.part-item:hover {
+  transform: scale(1.05);
+  border-color: #0066b1;
+  box-shadow: 0 0 15px rgba(0, 102, 177, 0.3);
+}
+
+.part-img {
+  max-height: 80px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.part-item:hover .part-img {
+  transform: rotate(5deg);
+}
+
+.part-label {
+  color: white;
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* Зона сборки */
+.drop-zone {
+  min-height: 300px;
+  border: 2px dashed rgba(0, 102, 177, 0.5);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.drop-hint {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.drop-zone.highlight {
+  border-color: #0066b1;
+  background: rgba(0, 102, 177, 0.1);
+}
+
+.success-message {
+  color: #00ff88;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Неоновая рамка для финального изображения */
+.neon-frame {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.neon-img {
+  border-radius: 4px;
+  box-shadow: 
+    0 0 10px #0066b1,
+    0 0 20px #0066b1,
+    0 0 30px rgba(0, 102, 177, 0.5);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .part-item {
+    width: 120px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .part-item {
+    width: 100px;
+  }
+  
+  .drop-zone {
+    min-height: 250px;
+  }
+}
+
+
+
+
+
+
+/* Стили для карточек */
+.card {
+  background: #1a1a1a;
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 102, 177, 0.4);
+}
+
+.shadow-hover {
+  position: relative;
+}
+
+.shadow-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 102, 177, 0);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.shadow-hover:hover::after {
+  box-shadow: 0 0 20px rgba(0, 102, 177, 0.6);
+}
+
+.card-img-container {
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-text {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 767.98px) {
+  .card-img-container {
+    height: 180px;
+  }
+}
+
+
+/* слайдер */
+/* Стили для блока */
+.m5-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-container {
+  height: 100%;
+}
+
+.carousel {
+  height: 100%;
+}
+
+.carousel-inner {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-size: 1.5rem;
+}
+
+.description-container {
+  transition: all 0.5s ease;
+}
+
+.features-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.features-list li {
+  position: relative;
+  padding-left: 0;
+}
+
+.red-timer {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.timer-block {
+  flex: 1;
+}
+
+.exclusive-badge {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.offer-btn {
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.offer-btn:hover {
+  background: #cc0000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255,0,0,0.3);
+}
+
+/* Анимация для таймера */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+.text-danger {
+  animation: pulse 1s infinite;
+}
+
+
+
+
+
+/*Галлерея*/
+
+.gallery-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-wrapper {
+  position: relative;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.gallery-row {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.gallery-row:nth-child(2) {
+  top: 250px;
+}
+
+.gallery-track {
+  display: flex;
+  position: absolute;
+  will-change: transform;
+  height: 100%;
+}
+
+.moving-left {
+  animation: moveLeft 40s linear infinite;
+}
+
+.moving-right {
+  animation: moveRight 45s linear infinite;
+}
+
+.trapezoid-item {
+  width: 300px;
+  height: 100%;
+  margin: 0 10px;
+  position: relative;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+  transition: all 0.5s ease;
+  filter: drop-shadow(0 0 10px rgba(0, 102, 177, 0.5));
+  flex-shrink: 0;
+}
+
+.trapezoid-item.inverted {
+  clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 25% 100%);
+}
+
+.trapezoid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.blur-image {
+  filter: blur(3px) grayscale(30%);
+}
+
+.trapezoid-item:hover img {
+  filter: blur(0) grayscale(0%);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 102, 177, 0.8);
+}
+
+.trapezoid-item:hover {
+  z-index: 10;
+}
+
+@keyframes moveLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes moveRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .gallery-wrapper {
+    height: 400px;
+  }
+  
+  .gallery-row {
+    height: 150px;
+  }
+  
+  .gallery-row:nth-child(2) {
+    top: 200px;
+  }
+  
+  .trapezoid-item {
+    width: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Стили для блока с видео */
+/* Стили для заголовков */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  color: white;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+.title-divider {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #0066b1, #cc0000);
+  margin-top: 20px;
+}
+
+/* Стили для карточки характеристик */
+.specs-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 102, 177, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.specs-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.specs-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.specs-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, #0066b1, #cc0000);
+}
+
+.rpm-indicator {
+  font-size: 0.8rem;
+  color: #cc0000;
+  animation: blink 1.5s infinite;
+}
+
+/* Улучшенная сетка характеристик */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.spec-item {
+  text-align: center;
+  padding: 20px 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 102, 177, 0.1);
+}
+
+.spec-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 5px;
+  background: linear-gradient(to bottom, #fff, #aaa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.spec-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spec-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: calc(var(--width) + 5%);
+  background: linear-gradient(to right, #0066b1, #cc0000);
+  transition: width 0.5s ease;
+}
+
+/* Список особенностей */
+.tech-features {
+  margin: 25px 0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  color: #ddd;
+}
+
+.feature-icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.feature-text {
+  font-size: 0.95rem;
+}
+
+/* Стили для видео */
+.video-preview {
+  position: relative;
+  aspect-ratio: 16/9;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-label {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(204, 0, 0, 0.8);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  z-index: 2;
+}
+
+/* Декоративные элементы */
+.bmw-badge {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(0, 102, 177, 0.05);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.power-lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(0, 102, 177, 0.03), transparent);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Анимации */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* Кнопка */
+.launch-btn {
+  background: linear-gradient(to right, #0066b1, #004080);
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.launch-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.launch-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 102, 177, 0.3);
+}
+
+.launch-btn:hover::after {
+  left: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .bmw-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .spec-item {
+    padding: 15px;
+  }
+}
+
+
+/* Новые стили для заставки */
+.poster-image-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.poster-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 100%;
+}
+
+/* Обновленные стили видео-превью */
+.video-preview {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 соотношение */
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.video-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .bmw-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .spec-item {
+    padding: 15px;
+  }
+}
+
+
+/*футер*/
+.bmw-simple-footer {
+  background: #111;
+  color: #fff;
+  padding: 30px 0;
+  border-top: 1px solid #0066b1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  background: #0066b1;
+  transform: translateY(-3px);
+}
+
+.social-icon img {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.social-icon:hover img {
+  opacity: 1;
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.menu-link {
+  color: #aaa;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.menu-link:hover {
+  color: #0066b1;
+}
+
+.footer-bottom {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .footer-menu {
+    gap: 15px;
+  }
+}

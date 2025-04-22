@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="bg-dark">
+
+  <nav class="navbar navbar-expand-lg navbar-dark position-absolute w-100 py-3 fixed-top"
+    style="z-index: 1000; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <svg class="bmw-logo" width="40" height="40" viewBox="0 0 40 40">
+          <!-- BMW логотип SVG -->
+          <circle cx="20" cy="20" r="18" fill="none" stroke="#fff" stroke-width="1.5" />
+          <path fill="#0066b1" d="M20,2a18,18 0 1,1 0,36a18,18 0 0,1 0-36zm0,4a14,14 0 1,0 0,28a14,14 0 0,0 0-28z" />
+          <path fill="#fff" d="M20,6a14,14 0 0,1 0,28v-4a10,10 0 0,0 0-20v-4z" />
+        </svg>
+      </a>
+
+      <div class="navbar-collapse collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-2">
+            <a class="nav-link bmw-nav-link" href="#">
+              <span class="nav-text">Главная</span>
+              <span class="nav-hover"></span>
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link bmw-nav-link" href="#models">
+              <span class="nav-text">Модели</span>
+              <span class="nav-hover"></span>
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link bmw-nav-link" href="#tech">
+              <span class="nav-text">Технологии</span>
+              <span class="nav-hover"></span>
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a class="nav-link bmw-nav-link" href="#testdrive">
+              <span class="nav-text">Тест-драйв</span>
+              <span class="nav-hover"></span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="ms-auto">
+          <a href="#contact" class="btn bmw-contact-btn">
+            <span>Контакты</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <button class="navbar-toggler bmw-toggler" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Игра -->
+  <main class="main">
+    <section class="game-section">
+      <div class="container-fluid bg-dark py-5" style="background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);">
+        <div class="container main">
+          <!-- Заголовок игры -->
+          <div class="row mb-5">
+            <div class="col-12 text-center">
+              <h2 class="text-white mb-3">Собери свою BMW</h2>
+              <p class="text-white">Перетащите все детали в зону сборки, чтобы увидеть результат</p>
+              <div class="title-divider mx-auto"></div>
+            </div>
+          </div>
+  
+          <!-- Основная игровая зона -->
+          <div class="row justify-content-center" id="gameArea">
+            <!-- Левый контейнер с деталями -->
+            <div class="col-lg-5 mb-5 mb-lg-0">
+              <div class="parts-card p-4 p-lg-5 rounded-3">
+                <h3 class="text-white mb-4 text-center">
+                  <span class="text-primary">Детали</span> для сборки
+                </h3>
+                <div id="partsArea" class="d-flex flex-wrap justify-content-center gap-4">
+                  <div class="part-item" draggable="true" data-part="door">
+                    <img src="img/дверь.png" alt="Дверь" class="img-fluid part-img">
+                    <span class="part-label">Дверь</span>
+                  </div>
+                  <div class="part-item" draggable="true" data-part="hood">
+                    <img src="img/капот.png" alt="Капот" class="img-fluid part-img">
+                    <span class="part-label">Капот</span>
+                  </div>
+                  <div class="part-item" draggable="true" data-part="wheel">
+                    <img src="img/колесо.png" alt="Колесо" class="img-fluid part-img">
+                    <span class="part-label">Колесо</span>
+                  </div>
+                  <div class="part-item" draggable="true" data-part="door">
+                    <img src="img/дверь.png" alt="Дверь" class="img-fluid part-img">
+                    <span class="part-label">Дверь</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Правый контейнер - зона сборки -->
+            <div class="col-lg-5">
+              <div class="assembly-card p-4 p-lg-5 rounded-3">
+                <h3 class="text-white mb-4 text-center">
+                  <span class="text-primary">Зона</span> сборки
+                </h3>
+                <div id="dropZone" class="drop-zone">
+                  <div class="drop-hint">Перетащите детали сюда</div>
+                  <div class="success-message">Деталь успешно добавлена!</div>
+                  <div id="applyMessage" style="display: none;">Деталь будет применена...</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Финальное изображение -->
+          <div class="row justify-content-center mt-5" id="finalImageContainer" style="display: none;">
+            <div class="col-lg-8 text-center">
+              <h3 class="text-white mb-4">Ваша BMW собрана!</h3>
+              <div class="neon-frame mx-auto">
+                <img src="img/автомобили_bmw_manhart_900_m5.jpg" alt="Собранная BMW M5" class="img-fluid neon-img">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <!-- карточки -->
+    <div class="container-fluid py-5 "
+      style="background: linear-gradient(to bottom, #111 0%, #1a1a1a 100%); margin-bottom: 150px;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 text-center mb-5">
+            <h2 class="text-white mb-3">Преимущества BMW M5</h2>
+            <p class="text-white">Исключительное качество и инновации</p>
+          </div>
+
+          <div class="col-12">
+            <div class="row justify-content-center g-4">
+              <!-- Карточка 1 -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-hover">
+                  <div class="card-img-container">
+                    <img src="img/загрузка.jpeg" class="card-img-top" alt="Роскошный интерьер">
+                  </div>
+                  <div class="card-body">
+                    <h3 class="text-white">Роскошный интерьер</h3>
+                    <p class="card-text text-white">Испытайте непревзойденный комфорт благодаря высококачественным
+                      материалам и передовым технологиям, созданным для получения исключительных впечатлений от
+                      вождения.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Карточка 2 -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-hover">
+                  <div class="card-img-container">
+                    <img src="img/движок2.png" class="card-img-top" alt="Мощная производительность">
+                  </div>
+                  <div class="card-body">
+                    <h3 class="text-white">Мощная производительность</h3>
+                    <p class="card-text text-white">Раскройте динамическую мощь BMW M5 F90 благодаря его
+                      высокопроизводительному двигателю, обеспечивающему захватывающую скорость и точность.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Карточка 3 -->
+              <div class="col-lg-4 col-md-6">
+                <div class="card h-100 border-0 shadow-hover">
+                  <div class="card-img-container">
+                    <img src="img/внешка2.png" class="card-img-top" alt="Элегантный дизайн">
+                  </div>
+                  <div class="card-body">
+                    <h3 class="text-white">Элегантный дизайн</h3>
+                    <p class="card-text text-white">Полюбуйтесь потрясающей эстетикой BMW M5 F90, сочетающего в себе
+                      элегантность и спортивный стиль, что создает неповторимый образ на дороге.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <!-- слайдер -->
+    <div class="container-fluid m5-section py-5"
+      style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);">
+      <div class="row g-0" style="min-height: 600px;"> <!-- Фиксированная минимальная высота -->
+        <!-- Слайдер (левый блок) -->
+        <div class="col-lg-6 slider-container p-4 h-100">
+          <div id="bmwCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel"
+            data-bs-interval="5000" data-bs-pause="hover">
+            <div class="carousel-inner rounded-3 shadow-lg h-100">
+              <div class="carousel-item active h-100" data-description="0">
+                <img src="img/внутренняя1.png" class="d-block w-100 h-100" alt="Интерьер 1">
+              </div>
+              <div class="carousel-item h-100" data-description="1">
+                <img src="img/внутреняя2.png" class="d-block w-100 h-100" alt="Интерьер 2">
+              </div>
+              <div class="carousel-item h-100" data-description="2">
+                <img src="img/внешняя1.png" class="d-block w-100 h-100" alt="Экстерьер 1">
+              </div>
+              <div class="carousel-item h-100" data-description="3">
+                <img src="img/внешняя2.png" class="d-block w-100 h-100" alt="Экстерьер 2">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#bmwCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Предыдущий</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#bmwCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Следующий</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Правый блок (разделенный на две части) -->
+        <div class="col-lg-6 right-section p-4 d-flex flex-column h-100">
+          <!-- Верхний блок с описанием -->
+          <div class="description-container p-4 mb-4 rounded-3 flex-grow-1" style="background: rgba(255,255,255,0.05);">
+            <h2 class="text-white mb-3" id="description-title">Роскошный интерьер BMW M5</h2>
+            <p class="text-white mb-4" id="description-text">Инновационный дизайн салона сочетает в себе
+              высококачественные материалы и передовые технологии, создавая непревзойденный комфорт для водителя и
+              пассажиров.</p>
+            <ul class="features-list" id="description-list">
+              <li class="text-white mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Кожа Merino
+                премиум-класса</li>
+              <li class="text-white mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Индивидуальная
+                подсветка салона</li>
+              <li class="text-white mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>Система
+                климат-контроля 4-х зон</li>
+              <li class="text-white"><i class="bi bi-check-circle-fill text-primary me-2"></i>Панорамная стеклянная
+                крыша</li>
+            </ul>
+          </div>
+
+          <!-- Спецпредложение с красным таймером -->
+          <div class="special-offer-container p-4 rounded-3"
+            style="background: rgba(255,0,0,0.1); border: 1px solid rgba(255,0,0,0.3);">
+            <div class="special-offer-header mb-3">
+              <span class="exclusive-badge bg-danger px-3 py-1 rounded-pill d-inline-block mb-2">ЭКСКЛЮЗИВНО</span>
+              <h3 class="text-white">Специальное предложение</h3>
+              <p class="text-white">Только сегодня для первых 10 клиентов!</p>
+            </div>
+
+            <div class="red-timer d-flex justify-content-between mb-4">
+              <div class="timer-block text-center">
+                <span class="d-block fs-1 fw-bold text-danger" id="offer-hours">23</span>
+                <span class="text-white">часов</span>
+              </div>
+              <div class="timer-block text-center">
+                <span class="d-block fs-1 fw-bold text-danger" id="offer-minutes">59</span>
+                <span class="text-white">минут</span>
+              </div>
+              <div class="timer-block text-center">
+                <span class="d-block fs-1 fw-bold text-danger" id="offer-seconds">59</span>
+                <span class="text-white">секунд</span>
+              </div>
+            </div>
+
+            <button class="offer-btn btn btn-danger w-100 py-3 fw-bold" data-bs-toggle="modal"
+              data-bs-target="#contactModal">
+              Получить скидку 30%
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- галлерея -->
+    <div class="container-fluid gallery-section py-5"
+      style="background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="text-white mb-3">Галерея BMW M5</h2>
+            <p class="text-white">Эксклюзивные ракурсы и детали</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-wrapper">
+        <!-- Первый ряд трапеций -->
+        <div class="gallery-row">
+          <div class="gallery-track moving-left">
+            <!-- Фотографии будут добавлены через JS -->
+          </div>
+        </div>
+
+        <!-- Второй ряд трапеций -->
+        <div class="gallery-row">
+          <div class="gallery-track moving-right">
+            <!-- Фотографии будут добавлены через JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Видеообзор -->
+    <div class="container-fluid video-section py-5 position-relative"
+      style="background: linear-gradient(to right, #0a0a0a 0%, #1a1a1a 100%);">
+      <!-- Декоративные элементы -->
+      <div class="bmw-badge">M5</div>
+      <div class="power-lines"></div>
+
+      <div class="container position-relative">
+        <!-- Главный заголовок секции -->
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title text-uppercase mb-3">
+              <span class="text-primary">Легендарная</span> мощь
+            </h2>
+            <p class="section-subtitle text-white">Полное погружение в мир BMW M Performance</p>
+            <div class="title-divider mx-auto"></div>
+          </div>
+        </div>
+
+        <div class="row align-items-center">
+          <!-- Левая часть - характеристики -->
+          <div class="col-lg-5 mb-5 mb-lg-0">
+            <div class="specs-card p-4 p-lg-5 rounded-3">
+              <h3 class="specs-title text-white mb-4">
+                <span class="text-primary">Технические</span> характеристики
+                <span class="ms-2 rpm-indicator">● 8000 RPM</span>
+              </h3>
+
+              <div class="specs-grid mb-4">
+                <div class="spec-item">
+                  <div class="spec-value text-primary">617</div>
+                  <div class="spec-label text-white">лошадиных сил</div>
+                  <div class="spec-bar" style="--width: 90%"></div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-value text-primary">3.4</div>
+                  <div class="spec-label text-white">секунды до 100</div>
+                  <div class="spec-bar" style="--width: 95%"></div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-value text-primary">750</div>
+                  <div class="spec-label text-white">Нм крутящего момента</div>
+                  <div class="spec-bar" style="--width: 85%"></div>
+                </div>
+              </div>
+
+              <div class="tech-features mb-4">
+                <div class="feature-item">
+                  <span class="feature-icon">⚡</span>
+                  <span class="feature-text">4.4-литровый V8 с TwinPower Turbo</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🏁</span>
+                  <span class="feature-text">Полный привод M xDrive</span>
+                </div>
+                <div class="feature-item">
+                  <span class="feature-icon">🔄</span>
+                  <span class="feature-text">8-ступенчатая АКПП Steptronic</span>
+                </div>
+              </div>
+
+              <button class="btn btn-primary w-100 py-3 fw-bold launch-btn" id="playVideoBtn">
+                <span class="d-flex align-items-center justify-content-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-play-fill me-2" viewBox="0 0 16 16">
+                    <path
+                      d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                  </svg>
+                  Запустить видеообзор
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Правая часть - видео -->
+          <div class="col-lg-7">
+            <div class="video-preview rounded-3 overflow-hidden position-relative">
+              <div class="video-label">Эксклюзивный обзор</div>
+
+              <!-- Исправленная заставка видео -->
+              <div class="video-poster" id="videoPoster">
+                <div class="poster-image-container">
+                  <img src="img/Заставка4.png" alt="BMW M5 Video Preview" class="poster-image">
+                </div>
+                <div class="play-overlay">
+                  <div class="play-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#fff" viewBox="0 0 16 16">
+                      <path
+                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
+                    </svg>
+                  </div>
+                  <div class="pulse-effect"></div>
+                </div>
+                <div class="video-duration">1:00</div>
+              </div>
+
+              <video class="video-player w-100" id="bmwVideo" controls preload="none">
+                <source src="video/BMWVideo.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео тег.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- футер -->
+    <footer class="bmw-simple-footer">
+      <div class="footer-content">
+        <!-- Лого и соцсети -->
+        <div class="footer-top">
+          <div class="footer-logo">
+            <svg width="40" height="40" viewBox="0 0 40 40">
+              <circle cx="20" cy="20" r="18" fill="none" stroke="#0066b1" stroke-width="1"/>
+              <path fill="#0066b1" d="M20,2a18,18 0 1,1 0,36a18,18 0 0,1 0-36zm0,4a14,14 0 1,0 0,28a14,14 0 0,0 0-28z"/>
+              <path fill="#fff" d="M20,6a14,14 0 0,1 0,28v-4a10,10 0 0,0 0-20v-4z"/>
+            </svg>
+          </div>
+          
+          <div class="social-icons">
+            <a href="#" class="social-icon vk">
+              <img src="https://simpleicons.org/icons/vk.svg" alt="ВКонтакте" width="24">
+            </a>
+            <a href="#" class="social-icon ok">
+              <img src="https://simpleicons.org/icons/odnoklassniki.svg" alt="Одноклассники" width="24">
+            </a>
+            <a href="#" class="social-icon rutube">
+              <img src="https://simpleicons.org/icons/youtube.svg" alt="Rutube" width="24">
+            </a>
+            <a href="#" class="social-icon telegram">
+              <img src="https://simpleicons.org/icons/telegram.svg" alt="Telegram" width="24">
+            </a>
+          </div>
+        </div>
+        
+        <!-- Меню -->
+        <nav class="footer-menu">
+          <a href="#" class="menu-link">Модели</a>
+          <a href="#" class="menu-link">Технологии</a>
+          <a href="#" class="menu-link">О компании</a>
+          <a href="#" class="menu-link">Контакты</a>
+        </nav>
+        
+        <!-- Копирайт -->
+        <div class="footer-bottom">
+          <p>© BMW M5 2025. Все права защищены</p>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true" style="color: white;">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: #111; border: 1px solid #333;">
+          <div class="modal-header border-0">
+            <h5 class="modal-title">Обратная связь</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="contactForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Имя*</label>
+                <input type="text" class="form-control bg-dark text-white border-dark" id="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Телефон*</label>
+                <input type="tel" class="form-control bg-dark text-white border-dark" id="phone" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email*</label>
+                <input type="email" class="form-control bg-dark text-white border-dark" id="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="package" class="form-label">Комплектация</label>
+                <select class="form-select bg-dark text-white border-dark" id="package">
+                  <option value="">Выберите комплектацию</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Luxury">Luxury</option>
+                  <option value="M Sport">M Sport</option>
+                  <option value="Competition">Competition</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Комментарий</label>
+                <textarea class="form-control bg-dark text-white border-dark" id="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100 py-2"
+                style="background: #0066b1; border: none;">Отправить запрос</button>
+            </form>
+
+            <!-- Уведомление об успешной отправке -->
+            <div class="alert alert-success mt-3 d-none align-items-center" id="successAlert"
+              style="background: rgba(0,102,177,0.2); border-color: #0066b1; color: white;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="#0066b1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              <span class="ms-2">Ваш запрос успешно отправлен! Мы свяжемся с вами в ближайшее время.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/ScriptNew.js"></script>
+</body>
+
+</html>
