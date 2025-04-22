@@ -668,7 +668,9 @@ body {
   line-height: 1;
   margin-bottom: 5px;
   background: linear-gradient(to bottom, #fff, #aaa);
-  -webkit-background-clip: text;
+  background-clip: text;
+  /* -webkit-background-clip: text; */
+  color: grey;
   -webkit-text-fill-color: transparent;
 }
 

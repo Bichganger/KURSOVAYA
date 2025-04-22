@@ -103,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const finalImageContainer = document.getElementById('finalImageContainer');
   const successMessage = document.querySelector('.success-message');
   const applyMessage = document.getElementById('applyMessage');
+  let dropHint = document.querySelector('.drop-hint');
   
   let draggedItem = null;
   let partsCount = document.querySelectorAll('#partsArea .part-item').length;
@@ -137,6 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Показываем сообщение о применении
       applyMessage.style.display = 'block';
       successMessage.style.opacity = '0';
+      dropHint.style.display='none';
       
       // Имитируем процесс применения детали
       setTimeout(() => {
