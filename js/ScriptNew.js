@@ -9,17 +9,17 @@ window.addEventListener('scroll', function() {
   }
 });
 
-// Плавная прокрутка для якорей
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
+// // Плавная прокрутка для якорей
+// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+//   anchor.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     document.querySelector(this.getAttribute('href')).scrollIntoView({
+//       behavior: 'smooth'
+//     });
+//   });
+// });
 
-
+// кнопка контакты
 document.addEventListener('DOMContentLoaded', function() {
   // Открытие модального окна при клике на кнопку "Контакты"
   const contactBtn = document.querySelector('.bmw-contact-btn');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//наработки на главный экран
+//Интерактивная игра
 document.addEventListener('DOMContentLoaded', function() {
   const partsArea = document.getElementById('partsArea');
   const dropZone = document.getElementById('dropZone');
@@ -192,6 +192,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+
+
 //Карточки
 document.querySelectorAll('.card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -211,7 +213,7 @@ document.querySelectorAll('.card').forEach(card => {
         card.style.setProperty('--rotate-y', '0deg');
     });
 });
-//ммодальное окно
+//модальное окно
 document.addEventListener('DOMContentLoaded', function() {
   // Находим поле для комплектации в модальном окне
   const packageSelect = document.getElementById('package');
