@@ -182,6 +182,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+document.addEventListener('DOMContentLoaded', function() {
+  // Открытие модального окна при клике на кнопку "Контакты"
+  const contactBtn = document.querySelector('.imgKnopka');
+  contactBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const modal = new bootstrap.Modal(document.getElementById('contactModal'));
+    modal.show();
+  });
+});
 
 //Карточки
 document.querySelectorAll('.card').forEach(card => {

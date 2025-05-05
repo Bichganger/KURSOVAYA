@@ -365,6 +365,14 @@ body {
   max-width: 100%;
   height: auto;
 }
+.imgKnopka{
+  width: 250px;
+  height: 50px;
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: #0066b1;
+  color: white;
+}
 
 /* Адаптивность */
 @media (max-width: 992px) {
@@ -645,6 +653,43 @@ body {
 
 .trapezoid-item:hover {
   z-index: 10;
+}
+
+
+
+/* Стили для слайдера */
+.modal-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.slider-content {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.slider-content img {
+  max-height: 80vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.slider-prev, .slider-next {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 3px;
+  margin: 0 10px;
+}
+
+.slider-prev:hover, .slider-next:hover {
+  background: rgba(0, 0, 0, 0.8);
 }
 
 @keyframes moveLeft {
